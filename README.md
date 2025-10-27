@@ -1,15 +1,14 @@
-# Proyecto Juego Crazybird Jump
+# My proyect game is SPACE RAIN
 
-**En este juego el objetivo es simple, saltar de plataforma en plataforma y esquivar obstaculos, tentativamente que vaya recogiendo monedas para generar mas puntos.**
+**Is a interactive game like a space alien invader, but in this case will be called SPACE RAIN**
 
-**Lo que tendra**
+**What will have**
 
-- Mecanica basica
-- Toque de diversion y desafio para enganchar a los jugadores
-- Escenerario en 2D que se vaya moviendo conforme al jugador
+- Basic Mecanics
+- A touch of fun and challenge to engage players.
+- 2D stages that moves with player 
+**Limitations**
 
-**Limitaciones**
-
-- Oraciones largas y aburridas
-- Jugabilidad complicada
-- Detalles innecesarios
+- long and boring sentences
+- complicated gameplay
+- unnecessary details
