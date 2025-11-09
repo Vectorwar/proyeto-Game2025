@@ -14,12 +14,24 @@ black = (0, 0, 0) # to meteors
 white = (255, 255, 255) # to background
 red = (255, 0, 0) # to player
 #player properties
-player_width = 50
-player_height = 60
+player_width = 70
+player_height = 70
 player = pygame.Rect(width // 2 - player_width // 2,
                      height - player_height - 10,
                      player_width,
                      player_height)
+#load image
+player_image = pygame.image.load("nave.png").convert_alpha()
+meteor_image = pygame.image.load("meteor.png").convert_alpha()
+background_image = pygame.image.load("fondo.png").convert()
+
+#new size define
+player_size = (70, 70)
+meteor_size = (50, 50)
+
+#resize images
+player_image = pygame.transform.scale(player_image, player_size)
+meteor_image = pygame.transform.scale(meteor_image, meteor_size)
 #meteor properties
 meteor_width = 30
 meteor_height = 30
@@ -63,15 +75,17 @@ while running: # this is a loop that keeps the game running
     for meteor in meteors:
         if player.colliderect(meteor):
             running = False  # End the game on collision
-    
-    screen.fill(white) #fill the screen with white color
-    pygame.draw.rect(screen, red, player) #draw the player rectangle
-    for meteor in meteors:
-        pygame.draw.rect(screen, red, meteor) #draw the meteor rectangle
 
-    #draw the score
-    score_text = font.render(f"Score: {score}", True, black)
-    screen.blit(score_text, (10, 10))
+    screen.fill(black) #fill the screen with black color
+
+    screen.blit(background_image, (0, 0))#draw the background image
+
+    screen.blit(player_image, (player)) #draw the player image
+    for meteor in meteors:
+        screen.blit(meteor_image, (meteor)) #draw the meteor image
+    
+    score_text = font.render(f"Score: {score}", True, white)
+    screen.blit(score_text, (0, 0))
     
     pygame.display.flip() #update the display
     clock.tick(60)  # Limit to 60 frames per second
