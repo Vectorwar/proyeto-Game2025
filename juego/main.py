@@ -13,6 +13,10 @@ pygame.display.set_caption("Space rain game")
 black = (0, 0, 0) # to meteors
 white = (255, 255, 255) # to background
 red = (255, 0, 0) # to player
+
+#music of game
+pygame.mixer.init()
+pygame.mixer.Sound(r"C:\Users\ThinkPad\OneDrive\Desktop\proyeto-Game2025\juego\Scripts\assets\audio\vader.mp3").play(-1)    
 #player properties
 player_width = 70
 player_height = 70
@@ -74,6 +78,8 @@ while running: # this is a loop that keeps the game running
     # collision detection
     for meteor in meteors:
         if player.colliderect(meteor):
+            pygame.mixer.Sound(r"C:\Users\ThinkPad\OneDrive\Desktop\proyeto-Game2025\juego\Scripts\assets\audio\aoom.mp3").play()
+            pygame.time.delay(2000)  # Pause for 1 seconds
             running = False  # End the game on collision
 
     screen.fill(black) #fill the screen with black color
