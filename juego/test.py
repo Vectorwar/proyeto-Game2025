@@ -121,20 +121,20 @@ def show_game_over_screen(screen, player_name, final_score, width, height):
     
     screen.fill((20, 0, 0))
     
-    # game over text
+    # Game Over text
     game_over_text = font_large.render("GAME OVER", True, (255, 0, 0))
     screen.blit(game_over_text, (width // 2 - game_over_text.get_width() // 2, 30))
     
-    # player info
+    # Player info
     player_text = font_medium.render(f"{player_name}: {final_score}", True, (255, 255, 255))
     screen.blit(player_text, (width // 2 - player_text.get_width() // 2, 120))
     
-    # top 10 scores
+    # Top 10 scores
     top_scores = get_top_scores(10)
     title_text = font_medium.render("TOP 10 SCORES", True, (255, 215, 0))
     screen.blit(title_text, (width // 2 - title_text.get_width() // 2, 180))
     
-    # table headers
+    # Table headers
     header_text = font_tiny.render("#   Player              Score    Date", True, (150, 150, 150))
     screen.blit(header_text, (50, 240))
     
@@ -150,13 +150,13 @@ def show_game_over_screen(screen, player_name, final_score, width, height):
         screen.blit(score_line, (50, y_position))
         y_position += 30
     
-    # instructions
+    # Instructions
     continue_text = font_small.render("Press SPACE to play again or ESC to quit", True, (200, 200, 200))
     screen.blit(continue_text, (width // 2 - continue_text.get_width() // 2, height - 40))
     
     pygame.display.flip()
     
-    # wait for player input
+    # Wait for player input
     waiting = True
     while waiting:
         for event in pygame.event.get():
