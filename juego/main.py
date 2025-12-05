@@ -1,11 +1,9 @@
 """This is a pilot test file for the juego package.
 create by Jose juan Padilla"""
-import os
-import sys
 import pygame
 import random
 import sqlite3
-from datetime import datetime
+from datetime import datetime 
 
 pygame.init()
 
@@ -92,7 +90,7 @@ def show_start_menu(screen, width, height):
         start_text = font_small.render("Press ENTER to Start", True, (0, 255, 0))
         screen.blit(start_text, (width // 2 - start_text.get_width() // 2, 520))
         
-        pygame.display.flip()
+        pygame.display.flip() 
         
         # Event handling
         for event in pygame.event.get():
@@ -205,6 +203,7 @@ try:
     meteor_size = (50, 50)
     player_image = pygame.transform.scale(player_image, player_size)
     meteor_image = pygame.transform.scale(meteor_image, meteor_size)
+    background_image = pygame.transform.scale(background_image, (width, height))
 except:
     print("Images not found, using colored rectangles")
     player_image = None
@@ -237,6 +236,11 @@ while game_active:
     meteors = []
     score = 0
     running = True
+    
+    # Background scroll variables
+    bg_y1 = 0
+    bg_y2 = -height
+    bg_scroll_speed = 2
     
     # Game loop
     while running:
@@ -285,8 +289,21 @@ while game_active:
         
         # Drawing
         screen.fill(black)
+        
+        # Mover el fondo
+        bg_y1 += bg_scroll_speed
+        bg_y2 += bg_scroll_speed
+        
+        # Reset posición cuando el fondo sale de la pantalla
+        if bg_y1 >= height:
+            bg_y1 = -height
+        if bg_y2 >= height:
+            bg_y2 = -height
+        
+        # Dibujar dos copias del fondo para efecto continuo
         if background_image:
-            screen.blit(background_image, (0, 0))
+            screen.blit(background_image, (0, bg_y1))
+            screen.blit(background_image, (0, bg_y2))
         
         if player_image:
             screen.blit(player_image, player)
