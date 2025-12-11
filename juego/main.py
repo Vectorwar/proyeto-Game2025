@@ -90,6 +90,13 @@ def show_start_menu(screen, width, height):
         start_text = font_small.render("Press ENTER to Start", True, (0, 255, 0))
         screen.blit(start_text, (width // 2 - start_text.get_width() // 2, 520))
         
+        # Create by Jose Juan Padilla
+        credit_text = font_small.render("Created by Jose Juan Padilla", True, (200, 200, 200))
+        screen.blit(credit_text, (width - credit_text.get_width() - 10, height - 30))
+        
+        # extra message
+        extra_text = font_small.render("Star wars es bueno, pero StarTrek es mejor !", True, (200, 200, 200))
+        screen.blit(extra_text, (30, 30))
         pygame.display.flip() 
         
         # Event handling
@@ -136,7 +143,6 @@ def show_game_over_screen(screen, player_name, final_score, width, height):
     header_text = font_tiny.render("#   Player              Score    Date", True, (150, 150, 150))
     screen.blit(header_text, (50, 240))
     
-    y_position = 270
     for i, (name, score, date) in enumerate(top_scores, 1):
         # Truncate name if too long
         display_name = name[:12] + "..." if len(name) > 12 else name
