@@ -31,5 +31,6 @@
 4. Objetivo 🎯 Esquiva los meteoritos para acumular puntos. El juego guarda tu récord automáticamente. Si te tocan, pierdes.
 
 # Preview
- ![alt text](https://ibb.co/gbJvb97N)
- ![alt text](https://ibb.co/LD6M0V5r)
+
+ ![sTART](1.png)
+ ![JUEGO](2.png)
